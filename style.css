@@ -1,0 +1,14 @@
+body
+{
+    background-color: burlywood;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.board
+{
+    background-color: white;
+    height: 70vh;
+    width: 70vw;
+}
