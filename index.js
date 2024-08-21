@@ -10,8 +10,26 @@ document.addEventListener("DOMContentLoaded", ()=>
         }
         else{
             window.alert("board size must be in range of 1 to 100")
-            continue
         }
+    }
+
+    let board = document.querySelector(".sketch")
+    board.innerHTML = ''
+    for (let i = 0; i < board_size; i++)
+    {
+        let row = document.createElement('div')
+
+        for (let j = 0; j< board_size; j++)
+        {
+            let column = document.createElement('div')
+            column.style.borderColor = 'black'
+            column.style.borderStyle = 'solid'
+            column.style.borderWidth = '1px'
+            column.style.backgroundColor = 'green'
+            row.appendChild(column)
+        }
+        
+        board.appendChild(row)
     }
 
 })
