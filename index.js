@@ -19,10 +19,12 @@ document.addEventListener("DOMContentLoaded", ()=>
     { 
         let div = document.createElement('div')
         div.classList.add('one')
+        // Adjusting the height and width of div as per the board
         div.style.width = `calc(100% / ${board_size})`
         div.style.height = `calc(100% / ${board_size})`
         sketch.appendChild(div)
     }
+    // Checking if the mouse is cliked or not
     let isMouseDown = false;
     document.addEventListener('mousedown', () => {
         isMouseDown = true;
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", ()=>
         isMouseDown = false;
     });
 
-
+    // changes color when mouse is clicked and hovered
     document.querySelectorAll('.one').forEach(oneDiv => {
         oneDiv.addEventListener('mouseenter', function () {
             if (isMouseDown) {
