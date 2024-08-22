@@ -14,6 +14,7 @@ body
     display: flex;
     padding: 1px;
     padding-bottom: 7px;
+    box-sizing: border-box;
 }
 .settings
 {
@@ -22,4 +23,31 @@ body
     background-color: red;
     border-style: solid;
     border-color: black;
+}
+.sketch
+{
+    height: 100%;
+    width: 70%;
+    background-color: purple;
+    border-style: solid;
+    border-color: black;
+    margin-left: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+}
+
+.one{
+    background-color: green;
+    /* border: 1px solid black; */
+    /* width: 100%; */
+}
+.one:hover
+{
+    background-color: red;
+}
+.settings:hover
+{
+    background-color: green;
 }
