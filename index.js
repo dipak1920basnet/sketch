@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", ()=>
 {
     // Getting the board size in range of 1 to 100
+    let board_size
     while (true)
     {
-        let board_size = parseInt(prompt("Get board size between 1 to 100"))
+        board_size = parseInt(prompt("Get board size between 1 to 100"))
         if (board_size > 0 && board_size <= 100)
         {
             break
@@ -13,23 +14,30 @@ document.addEventListener("DOMContentLoaded", ()=>
         }
     }
 
-    let board = document.querySelector(".sketch")
-    board.innerHTML = ''
-    for (let i = 0; i < board_size; i++)
-    {
-        let row = document.createElement('div')
-
-        for (let j = 0; j< board_size; j++)
-        {
-            let column = document.createElement('div')
-            column.style.borderColor = 'black'
-            column.style.borderStyle = 'solid'
-            column.style.borderWidth = '1px'
-            column.style.backgroundColor = 'green'
-            row.appendChild(column)
-        }
-        
-        board.appendChild(row)
+    let sketch = document.querySelector(".sketch")
+    for (let i = 0; i < (board_size*board_size); i++)
+    { 
+        let div = document.createElement('div')
+        div.classList.add('one')
+        div.style.width = `calc(100% / ${board_size})`
+        div.style.height = `calc(100% / ${board_size})`
+        sketch.appendChild(div)
     }
+    let isMouseDown = false;
+    document.addEventListener('mousedown', () => {
+        isMouseDown = true;
+    });
+    document.addEventListener('mouseup', () => {
+        isMouseDown = false;
+    });
 
+
+    document.querySelectorAll('.one').forEach(oneDiv => {
+        oneDiv.addEventListener('mouseenter', function () {
+            if (isMouseDown) {
+                this.style.backgroundColor = 'black';
+            }
+        });
+    });
+        
 })
