@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", ()=>
     document.querySelectorAll('.one').forEach(oneDiv => {
         oneDiv.addEventListener('mouseenter', function () {
             if (isMouseDown) {
-                this.style.backgroundColor = 'black';
+                this.style.backgroundColor = 'purple';
             }
         });
     });
@@ -45,11 +45,39 @@ document.addEventListener("DOMContentLoaded", ()=>
     // Clears the board
     let clear_board = document.querySelector(".clear")
     clear_board.addEventListener("click",()=>
-    {
+    {      
         document.querySelectorAll('.one').forEach(oneDiv => {
             oneDiv.style.backgroundColor = 'green';
+            erase = false
         });
     })
+
+    // Erases the drawing
+
+    let erase_board = document.querySelector(".eraser")
+    let erase = false;
+    erase_board.addEventListener('click', () => {
+        if (erase == false)
+        {
+            erase = true;
+            erase_board.style.backgroundColor = 'blue';
+        
+                    
+        }
+        else
+        {
+            erase = false;
+            erase_board.style.backgroundColor = 'white';
+        }
+        
+    });
+    document.querySelectorAll('.one').forEach(oneDiv => {
+        oneDiv.addEventListener('mouseenter', function () {
+            if (isMouseDown & erase) {
+                this.style.backgroundColor = 'green';
+            }
+        });
+    });
     
         
 })
