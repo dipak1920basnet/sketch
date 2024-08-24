@@ -41,5 +41,15 @@ document.addEventListener("DOMContentLoaded", ()=>
             }
         });
     });
+
+    // Clears the board
+    let clear_board = document.querySelector(".clear")
+    clear_board.addEventListener("click",()=>
+    {
+        document.querySelectorAll('.one').forEach(oneDiv => {
+            oneDiv.style.backgroundColor = 'green';
+        });
+    })
+    
         
 })
